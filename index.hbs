@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{htmlWebpackPlugin.options.title}}</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrapper">
+    <section class="section-main">
+        <div class="logo-container">
+            <div class="logo"></div>
+        </div>
+    </section>
+    <section class="section-modal">
+        <div class="friend-filter-container">
+            <div class="card friend-filter">
+                <header class="card-header ff-header">
+                    <div class="ff-header-text">
+                        Выберите друзей
+                    </div>
+                    <button class="close-button">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </header>
+                <div class="card-body">
+                    <div class="ff-search-wrapper">
+                        <div class="input-group ff-search-box friend-search">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary friend-search-btn" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                            <input id="friend_left" class="form-control friend-search-input" placeholder="Начните вводить имя друга" aria-label="" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group ff-search-box friend-filter">
+                            <input id="friend_right" class="form-control friend-filter-input" placeholder="Название" aria-label="" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="friend-list-wrapper">
+                        <div class="left-list-container friend-list-container">
+                            <div class="list-heading">
+                                Ваши друзья
+                            </div>
+                            <ul class="friend-list left-friend-list drop-zone" >
+
+                            </ul>
+                        </div>
+                        <div class="right-list-container friend-list-container">
+                            <div class="list-heading">
+                                Друзья в списке
+                            </div>
+                            <ul class="friend-list right-friend-list drop-zone">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <footer class="ff-footer card-footer text-muted text-right">
+                    <button class="btn btn-primary save-button">Сохранить</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script id="user-left" type="text/x-handlebars-template">
+    {{#each items}}
+        <li class="friend-list-item friend" draggable="true">
+
+            <div class="friend-foto-wrapper">
+                <img src="{{photo_100}}" alt="" draggable="false">
+            </div>
+            <div class="friend-name">{{first_name}} {{last_name}}</div>
+            <div class="add-friend-button-wrapper">
+                <i id="{{id}}" class="fa fa-plus"></i>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<script id="user-right" type="text/x-handlebars-template">
+    {{#each items}}
+        <li class="friend-list-item friend" draggable="true">
+
+            <div class="friend-foto-wrapper">
+                <img src="{{photo_100}}" alt="" draggable="false">
+            </div>
+            <div class="friend-name">{{first_name}} {{last_name}}</div>
+            <div class="add-friend-button-wrapper">
+                <i id="{{id}}" class="fa fa-times"></i>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+</body>
+</html>
